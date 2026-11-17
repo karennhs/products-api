@@ -6,6 +6,14 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * ReplyInbox is a component that manages the registration and completion of
+ * replies in a concurrent environment.
+ * It uses a ConcurrentHashMap to store pending
+ * CompletableFuture instances associated with correlation IDs.
+ * When a reply is received, the corresponding CompletableFuture is completed, allowing any waiting threads to proceed.
+ *
+ */
 @Component
 public class ReplyInbox {
 
